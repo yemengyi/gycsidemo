@@ -19,7 +19,7 @@ function upload(picId) {
                 data: JSON.stringify(params),
                 success: function(res) {
                     if (res === 'success') {
-                        alert('success');
+                        alert('上传图片成功!');
                     }
                 }
             });
@@ -43,7 +43,7 @@ $(document).ready(
                 data: JSON.stringify(params),
                 success: function (data) {
                     wx.config({
-                        debug: true,
+                        debug: false,
                         appId: 'wxf1f4b5e7a684eebc',
                         timestamp: data.timestamp,
                         nonceStr: data.nonceStr,
@@ -74,7 +74,7 @@ $(document).ready(
                 success: function (res) {
                     //images.localId = res.localIds;
                     $("#img_test").attr("src", res.localIds[0]);
-                    alert('已选择 ' + res.localIds.length + ' 张图片');
+                    //alert('已选择 ' + res.localIds.length + ' 张图片');
                     upload(res.localIds[0]);
                 }
             });
@@ -94,7 +94,7 @@ $(document).ready(
                     });
                 },
                 cancel: function (res) {
-                    alert('用户拒绝授权获取地理位置');
+                    //alert('用户拒绝授权获取地理位置');
                 }
             });
         });

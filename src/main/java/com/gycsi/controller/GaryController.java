@@ -30,7 +30,6 @@ public class GaryController {
 
         model.addAttribute("title","测试信息检索");
         model.addAttribute("user",user);
-
         return "gary";
     }
 

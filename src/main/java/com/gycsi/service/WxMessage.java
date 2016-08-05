@@ -27,33 +27,37 @@ public class WxMessage {
             String fromUserName = messageMap.get("FromUserName");
             String msgType = messageMap.get("MsgType");
 
-            switch (msgType){
+            switch (msgType) {
                 case MessageUtil.REQ_MESSAGE_TYPE_TEXT:
                     String content = messageMap.get("Content");
-                    Gary gary = garyService.getGaryBySfzh(content);
-                    if (gary != null) {
-                        String respContent = gary.getWxInfo();
-
-                        TextMessage respMessage = new TextMessage();
-                        respMessage.setFromUserName(toUserName);
-                        respMessage.setToUserName(fromUserName);
-                        respMessage.setCreateTime(new Date().getTime());
-                        respMessage.setMsgType(MessageUtil.REQ_MESSAGE_TYPE_TEXT);
-                        respMessage.setContent(respContent);
-                        respWxMessage = MessageUtil.textMessageToXml(respMessage);
+                    String respContent = "";
+                    if (content.length() == 18) {
+                        Gary gary = garyService.getGaryBySfzh(content);
+                        if (gary != null) {
+                            respContent = gary.getWxInfo();
+                        }
+                    } else {
+                        respContent = "欢迎使用社保服务。";
                     }
+                    TextMessage respMessage = new TextMessage();
+                    respMessage.setFromUserName(toUserName);
+                    respMessage.setToUserName(fromUserName);
+                    respMessage.setCreateTime(new Date().getTime());
+                    respMessage.setMsgType(MessageUtil.REQ_MESSAGE_TYPE_TEXT);
+                    respMessage.setContent(respContent);
+                    respWxMessage = MessageUtil.textMessageToXml(respMessage);
                     break;
                 case MessageUtil.REQ_MESSAGE_TYPE_EVENT:
                     String event = messageMap.get("Event");
                     if (event.equals(MessageUtil.EVENT_TYPE_SUBSCRIBE)) {
                         CreateMenu.createMenu();
-                        TextMessage respMessage = new TextMessage();
-                        respMessage.setFromUserName(toUserName);
-                        respMessage.setToUserName(fromUserName);
-                        respMessage.setCreateTime(new Date().getTime());
-                        respMessage.setMsgType(MessageUtil.REQ_MESSAGE_TYPE_TEXT);
-                        respMessage.setContent("欢迎订阅");
-                        respWxMessage = MessageUtil.textMessageToXml(respMessage);
+                        TextMessage respMessage2 = new TextMessage();
+                        respMessage2.setFromUserName(toUserName);
+                        respMessage2.setToUserName(fromUserName);
+                        respMessage2.setCreateTime(new Date().getTime());
+                        respMessage2.setMsgType(MessageUtil.REQ_MESSAGE_TYPE_TEXT);
+                        respMessage2.setContent("欢迎订阅");
+                        respWxMessage = MessageUtil.textMessageToXml(respMessage2);
                     }
                     break;
             }

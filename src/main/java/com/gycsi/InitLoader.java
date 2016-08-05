@@ -2,6 +2,9 @@ package com.gycsi;
 
 import com.gycsi.domain.Gary;
 import com.gycsi.repository.GaryRepository;
+import me.chanjar.weixin.mp.api.WxMpConfigStorage;
+import me.chanjar.weixin.mp.api.WxMpMessageRouter;
+import me.chanjar.weixin.mp.api.WxMpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -13,6 +16,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class InitLoader implements ApplicationListener<ContextRefreshedEvent> {
     private GaryRepository garyRepository;
+
 
     @Autowired
     public void setGaryRepository(GaryRepository GaryRepository) {
@@ -29,4 +33,6 @@ public class InitLoader implements ApplicationListener<ContextRefreshedEvent> {
 
         }
     }
+
+
 }
