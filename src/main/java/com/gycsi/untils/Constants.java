@@ -8,4 +8,6 @@ public class Constants {
     public final static String token = "qianfeng";
     public final static String appid = "wxf1f4b5e7a684eebc";
     public final static String appsecret = "1e7a7092aaf4e0bbdccce60752f79e27";
+    public final static String oauth2 = "http://qianfeng.tunnel.qydev.com/oauth2/";
+
 }

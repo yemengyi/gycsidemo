@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.gycsi.pojo.*;
 import com.gycsi.untils.HTTPClientUtils;
+import com.gycsi.untils.WxUtil;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
@@ -49,9 +50,16 @@ public class CreateMenu {
         viewButton21.setType("view");
         viewButton21.setUrl("http://qianfeng.tunnel.qydev.com/wxjs_photo");
 
+        ViewButton viewButton22 = new ViewButton();
+        viewButton22.setName("Oathu2");
+        viewButton22.setType("view");
+        String url = WxUtil.makeOauth2Url();
+
+        viewButton22.setUrl(url);
+
         ComplexButton complexButton2 = new ComplexButton();
         complexButton2.setName("菜单2");
-        complexButton2.setSub_button(new BaseButton[]{viewButton21});
+        complexButton2.setSub_button(new BaseButton[]{viewButton21,viewButton22});
 
         Menu menu = new Menu();
         menu.setButton(new BaseButton[]{complexButton1,complexButton2});

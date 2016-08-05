@@ -1,33 +1,31 @@
-package com.gycsi.service;
+package com.gycsi.untils;
 
-import com.gycsi.untils.Constants;
 import me.chanjar.weixin.common.api.WxConsts;
 import me.chanjar.weixin.mp.api.WxMpInMemoryConfigStorage;
 import me.chanjar.weixin.mp.api.WxMpServiceImpl;
 
 /**
- * Created by qian-pc on 8/4/16.
+ * Created by qian-pc on 8/5/16.
  */
-public class Oauth2 {
+public class WxUtil {
 
-    public static void main(String args[]){
-        makeUrl();
-    }
+    public static WxMpServiceImpl wxMpService;
 
-    public static void makeUrl() {
+    public static void initWx(){
         WxMpInMemoryConfigStorage config = new WxMpInMemoryConfigStorage();
         config.setAppId(Constants.appid);
         config.setSecret(Constants.appsecret);
         config.setToken(Constants.token);
         config.setAesKey("");
-
         WxMpServiceImpl wxService = new WxMpServiceImpl();
         wxService.setWxMpConfigStorage(config);
-
-
-       String url =  wxService.oauth2buildAuthorizationUrl(WxConsts.OAUTH2_SCOPE_USER_INFO, null);
-
-        System.out.println("   xxxxx    " + url);
+        wxMpService = wxService;
     }
 
+
+    public static String makeOauth2Url() {
+        initWx();
+        String url =  wxMpService.oauth2buildAuthorizationUrl(Constants.oauth2,WxConsts.OAUTH2_SCOPE_BASE, null);
+        return url;
+    }
 }
