@@ -45,9 +45,9 @@ public class CreateMenu {
         complexButton1.setSub_button(new BaseButton[]{commonButton11,commonButton12});
 
         ViewButton viewButton21 = new ViewButton();
-        viewButton21.setName("菜单21");
+        viewButton21.setName("拍照上传");
         viewButton21.setType("view");
-        viewButton21.setUrl("http://qianfeng.tunnel.qydev.com/wxjs");
+        viewButton21.setUrl("http://qianfeng.tunnel.qydev.com/wxjs_photo");
 
         ComplexButton complexButton2 = new ComplexButton();
         complexButton2.setName("菜单2");

@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>人员查询</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!--/*/ <th:block th:include="fragment/head::head"></th:block> /*/-->
+    <script src="../static/js/wxjs_photo.js" th:src="@{/js/wxjs_photo.js}"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" th:src="@{http://res.wx.qq.com/open/js/jweixin-1.0.0.js}"></script>
+</head>
+<body>
+
+<header class="container">
+    <div class="row">
+        <h1 class="col-sm-6">上传图片</h1>
+        <button class="button_img">拍照上传</button>
+        <button id="openLocation" style="display: none">位置</button>
+        <img id="img_test" src=""/>
+    </div>
+</header>
+
+
+</body>
+</html>

@@ -3,42 +3,22 @@
 <head>
     <title>人员查询</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-
     <!--/*/ <th:block th:include="fragment/head::head"></th:block> /*/-->
-
-    <script src="../static/js/wx.js" th:src="@{/js/wx.js}"></script>
-    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"
-            th:src="@{http://res.wx.qq.com/open/js/jweixin-1.0.0.js}"></script>
-
+    <script src="../static/js/wxjs_photo.js" th:src="@{/js/wxjs_photo.js}"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" th:src="@{http://res.wx.qq.com/open/js/jweixin-1.0.0.js}"></script>
 </head>
 <body>
 
 <header class="container">
     <div class="row">
-        <h1 class="col-sm-4">信息检索</h1>
-        <button class="button_img">选择照片</button>
-        <button id="openLocation">位置</button>
+        <h1 class="col-sm-6">上传图片</h1>
+        <button class="button_img">拍照</button>
+        <button id="openLocation" style="display: none">位置</button>
         <img id="img_test" src=""/>
     </div>
 </header>
 
-<section class="container">
-    <div class="row">
-        <div class="col-xs-6">
-            <input type="text" class="form-control" th:placeholder="请输入"/>
-            <span class="input-group-btn"><button class="btn btn-default" type="button">查找!</button></span>
-        </div>
 
-        <table class="table table-hover table-bordered table-responsive">
-            <thead>
-            <tr>
-                <th data-field="xm">姓名</th>
-                <th data-field="sfzh">身份证号</th>
-                <th data-field="dz">住址</th>
-            </tr>
-            </thead>
-        </table>
-    </div>
 </section>
 
 

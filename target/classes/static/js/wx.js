@@ -58,7 +58,7 @@ $(document).ready(
                     });
 
                     wx.ready(function () {
-                        alert('ready ');
+                        //alert('ready ');
 
                     });
 
