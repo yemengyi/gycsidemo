@@ -73,7 +73,7 @@ public class SignUtils {
     }
 
     public static Map<String, String> sign(String jsapi_ticket, String url) {
-        Map<String, String> ret = new HashMap<String, String>();
+        Map<String, String> ret = new HashMap();
         String nonce_str = create_nonce_str();
         String timestamp = create_timestamp();
         String string1;
@@ -103,6 +103,7 @@ public class SignUtils {
         }
 
         ret.put("url", url);
+        ret.put("appId",Constants.appid);
         ret.put("jsapi_ticket", jsapi_ticket);
         ret.put("nonceStr", nonce_str);
         ret.put("timestamp", timestamp);

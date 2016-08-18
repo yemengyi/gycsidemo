@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+<head>
+    <title>生存认证 第二步</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" th:href="@{//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css}" rel="stylesheet"/>
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" th:href="@{//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link href="//cdn.bootcss.com/weui/0.4.3/style/weui.min.css" th:href="@{//cdn.bootcss.com/weui/0.4.3/style/weui.min.css}" rel="stylesheet"/>
+    <link href="//cdn.bootcss.com/jquery-weui/0.8.0/css/jquery-weui.min.css" th:href="@{//cdn.bootcss.com/jquery-weui/0.8.0/css/jquery-weui.min.css}" rel="stylesheet"/>
+</head>
+
+
+<body style="margin-left: 5vw;margin-right: 5vw">
+
+<div id="div1" class="alert alert-info text-left" role="alert">
+    请拍摄正面半身照片一张,并上传。
+</div>
+
+<img id="img" style="height: 70vh" class="img-responsive img-rounded img-thumbnail center-block" th:src="${rzxx.zp_url}" alt="本人照片"/>
+<!--<img id="img" th:if="${not #lists.isEmpty(rzxx)}" th:src="${rzxx.zp_url}" style="height: 70vh" class="img-responsive img-rounded img-thumbnail center-block" alt="本人照片"/>-->
+
+<div style="margin-top: 3vh">
+    <input type="button" class="btn btn-primary btn-lg center-block" id="btn_submit" style="width: 100%" value="拍摄照片" disabled="disabled"/>
+</div>
+
+</body>
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js" th:src="@{//cdn.bootcss.com/jquery/3.1.0/jquery.min.js}"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" th:src="@{//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+<script src="//cdn.bootcss.com/jquery-weui/0.8.0/js/jquery-weui.min.js" th:src="@{//cdn.bootcss.com/jquery-weui/0.8.0/js/jquery-weui.min.js}"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" th:src="@{http://res.wx.qq.com/open/js/jweixin-1.0.0.js}"></script>
+<script src="../../static/js/scrz/step2.js" th:src="@{/js/scrz/step2.js}" th:inline=""></script>
+<script th:inline="javascript">
+        var zp = [[${rzxx.zp_url}]];
+        if (zp==null) {
+            $("#btn_commit").attr("value","拍摄照片");
+        }else {
+            $("#btn_commit").attr("value","重新拍照");
+            $("#btn_commit").removeClass("btn-primary").addClass("btn-info");
+        }
+</script>
+
+</html>

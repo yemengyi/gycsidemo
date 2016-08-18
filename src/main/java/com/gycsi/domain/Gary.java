@@ -7,7 +7,7 @@ import javax.persistence.*;
  * Created by qian-pc on 7/12/16.
  */
 @Entity
-@Table(name = "v_b")
+@Table(name = "B_GARY")
 public class Gary {
     @Id
     @Column(name="SFZH")

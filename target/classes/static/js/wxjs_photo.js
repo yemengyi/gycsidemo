@@ -44,7 +44,7 @@ $(document).ready(
                 success: function (data) {
                     wx.config({
                         debug: false,
-                        appId: 'wxf1f4b5e7a684eebc',
+                        appId: data.appId,
                         timestamp: data.timestamp,
                         nonceStr: data.nonceStr,
                         signature: data.signature,
@@ -59,7 +59,6 @@ $(document).ready(
 
                     wx.ready(function () {
                         //alert('ready ');
-
                     });
 
                 }

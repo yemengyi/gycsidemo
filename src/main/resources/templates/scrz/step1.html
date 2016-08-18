@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+<head>
+    <title>生存认证 第一步</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" th:href="@{//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css}" rel="stylesheet"/>
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" th:href="@{//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link href="//cdn.bootcss.com/weui/0.4.3/style/weui.min.css" th:href="@{//cdn.bootcss.com/weui/0.4.3/style/weui.min.css}" rel="stylesheet"/>
+    <link href="//cdn.bootcss.com/jquery-weui/0.8.0/css/jquery-weui.min.css" th:href="@{//cdn.bootcss.com/jquery-weui/0.8.0/css/jquery-weui.min.css}" rel="stylesheet"/>
+
+</head>
+
+
+<body style="margin-left: 5vw;margin-right: 5vw">
+<div id="div1" class="alert alert-info text-left" role="alert" th:text="${rzxx.ssb.sm}">
+</div>
+
+<img th:src="${ss_url}+${rzxx.ssb.filename}" style="height: 70vh"
+     class="img-responsive img-rounded img-thumbnail center-block" alt="演示图片"/>
+
+<div style="margin-top: 3vh">
+    <input type="button" class="btn btn-primary btn-lg center-block" id="btn_submit" style="width: 100%" value="下一步"/>
+</div>
+
+
+</body>
+
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js" th:src="@{//cdn.bootcss.com/jquery/3.1.0/jquery.min.js}"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" th:src="@{//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+<script src="//cdn.bootcss.com/jquery-weui/0.8.0/js/jquery-weui.min.js" th:src="@{//cdn.bootcss.com/jquery-weui/0.8.0/js/jquery-weui.min.js}"></script>
+<script th:inline="javascript">
+    $("#btn_submit").on("click", function () {
+        $.showLoading("请稍后");
+        var xh = [[${rzxx.xh}]];
+        location.href = "step2?xh=" + xh;
+    });
+</script>
+
+
+</html>

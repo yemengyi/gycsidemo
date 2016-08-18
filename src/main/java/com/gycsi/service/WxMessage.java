@@ -50,7 +50,6 @@ public class WxMessage {
                 case MessageUtil.REQ_MESSAGE_TYPE_EVENT:
                     String event = messageMap.get("Event");
                     if (event.equals(MessageUtil.EVENT_TYPE_SUBSCRIBE)) {
-                        CreateMenu.createMenu();
                         TextMessage respMessage2 = new TextMessage();
                         respMessage2.setFromUserName(toUserName);
                         respMessage2.setToUserName(fromUserName);

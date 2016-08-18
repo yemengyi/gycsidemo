@@ -1,14 +1,49 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
 <head>
-    <title>身份绑定</title>
-    <!--/*/ <th:block th:include="fragment/head::head"></th:block> /*/-->
+    <title>身份绑定 第二步</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" th:href="@{//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css}" rel="stylesheet"/>
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" th:href="@{//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link href="//cdn.bootcss.com/weui/0.4.3/style/weui.min.css" th:href="@{//cdn.bootcss.com/weui/0.4.3/style/weui.min.css}" rel="stylesheet"/>
+    <link href="//cdn.bootcss.com/jquery-weui/0.8.0/css/jquery-weui.min.css" th:href="@{//cdn.bootcss.com/jquery-weui/0.8.0/css/jquery-weui.min.css}" rel="stylesheet"/>
+    <link href="../../static/css/oauth2/sfbd.css" th:href="@{/css/oauth2/sfbd.css}" rel="stylesheet"/>
+
 </head>
+
+
 <body>
 
-<header class="container">
-</header>
 
+<form class="form-horizontal" id="from1" style="margin-left: 10vw;margin-right: 10vw;margin-top: 3vh">
+    <div class="form-group">
+        <label class="text-primary" for="sjhm">社保预存手机号</label>
+        <input type="text" class="form-control" id="sjhm" name="sjhm" placeholder="社保预存手机号" maxlength="11"
+               disabled="true" th:value="${sjhm}"/>
+    </div>
+    <div class="form-group">
+        <label class="text-primary" for="dx">请输入获取的短信验证码</label><br/>
+        <input type="number" class="form-control" id="dx" name="dx" placeholder="短信验证码" style="float: left;width: 60%" oninput="if(value.length>6)value=value.slice(0,6)"/>
+        <input type="button" class="btn btn-primary" id="btn_dx" style="float: left;width: 40%;" value="获取验证码"/>
+    </div>
+    <div class="form-group">
+        <input type="button" class="btn btn-primary btn-lg center-block" id="btn_submit" style="width: 100%" value="身份绑定"/>
+    </div>
+</form>
+
+<div class="hidden">
+    <input id="xm" type="text" th:value="${xm}"/>
+    <input id="openid" type="text" th:value="${openid}"/>
+    <input id="sfzh" type="text" th:value="${sfzh}"/>
+</div>
+
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js" th:src="@{//cdn.bootcss.com/jquery/3.1.0/jquery.min.js}"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" th:src="@{//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+<script src="../../static/jquery/jquery.validate.min.js" th:src="@{/jquery/jquery.validate.min.js}"></script>
+<script src="//cdn.bootcss.com/jquery-weui/0.8.0/js/jquery-weui.min.js" th:src="@{//cdn.bootcss.com/jquery-weui/0.8.0/js/jquery-weui.min.js}"></script>
+<script src="../../static/js/oauth2/sfbd.js" th:src="@{/js/oauth2/sfbd.js}"></script>
 
 </body>
 </html>

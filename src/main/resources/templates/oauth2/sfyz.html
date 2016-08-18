@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+<head>
+    <title>身份验证 第一步</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" th:href="@{//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css}" rel="stylesheet"/>
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" th:href="@{//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link href="//cdn.bootcss.com/weui/0.4.3/style/weui.min.css" th:href="@{//cdn.bootcss.com/weui/0.4.3/style/weui.min.css}" rel="stylesheet"/>
+    <link href="//cdn.bootcss.com/jquery-weui/0.8.0/css/jquery-weui.min.css" th:href="@{//cdn.bootcss.com/jquery-weui/0.8.0/css/jquery-weui.min.css}" rel="stylesheet"/>
+    <link href="../../static/css/oauth2/sfbd.css" th:href="@{/css/oauth2/sfbd.css}" rel="stylesheet"/>
+
+</head>
+
+
+<body>
+
+
+<form  class="form-horizontal" id="from1" style="margin-left: 10vw;margin-right: 10vw;margin-top: 3vh">
+    <div class="form-group">
+        <label class="text-primary" for="xm">请输入姓名</label>
+        <input type="text" class="form-control" id="xm" name="xm" placeholder="姓名" maxlength="4"/>
+    </div>
+    <div class="form-group">
+        <label class="text-primary" for="sfzh">请输入二代身份证号码</label>
+        <input type="text" class="form-control" id="sfzh" name="sfzh" placeholder="身份证号码" maxlength="18"/>
+    </div>
+    <div class="form-group">
+    <input type="button" class="btn btn-primary btn-lg center-block" id="btn_submit" style="width: 100%" value="下一步"/>
+    </div>
+
+</form>
+
+
+<div class="hidden">
+    <input type="text" id="openid" th:value="${openid}"/>
+</div>
+
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js" th:src="@{//cdn.bootcss.com/jquery/3.1.0/jquery.min.js}"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" th:src="@{//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+<script src="../../static/jquery/jquery.validate.min.js" th:src="@{/jquery/jquery.validate.min.js}"></script>
+<script src="//cdn.bootcss.com/jquery-weui/0.8.0/js/jquery-weui.min.js" th:src="@{//cdn.bootcss.com/jquery-weui/0.8.0/js/jquery-weui.min.js}"></script>
+<script src="../../static/js/oauth2/sfyz.js" th:src="@{/js/oauth2/sfyz.js}"></script>
+
+</body>
+</html>

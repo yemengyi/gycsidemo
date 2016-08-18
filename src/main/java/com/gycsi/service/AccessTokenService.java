@@ -42,12 +42,9 @@ public class AccessTokenService {
         if (jsApiTicket.isExpired()) {
             String url = "https://api.weixin.qq.com/cgi-bin/ticket/getticket?type=jsapi"
                     + "&access_token=" + getAccessToken();
-
             try {
                 ObjectNode objectNode = HTTPClientUtils.sendHTTPRequest(url, null,RequestMethod.GET);
-
                 jsApiTicket.setJsApiTicket(objectNode.get("ticket").asText());
-
                 long expireTime = System.currentTimeMillis() + (objectNode.get("expires_in").asLong() - 200) * 1000l;
                 jsApiTicket.setExpiresTime(expireTime);
             } catch (Exception e) {
